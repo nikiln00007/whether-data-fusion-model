@@ -194,8 +194,11 @@ app.get(['/health', '/api/health'], (_, res) => {
 });
 
 /* ── Start ────────────────────────────────────────── */
-app.listen(PORT, () => {
-  console.log(`✅ Weather Backend running on http://localhost:${PORT}`);
-  console.log(`   Chat Model: ${GROQ_MODEL}`);
-  console.log(`   Voice: ElevenLabs (${ELEVENLABS_VOICE_ID})`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`✅ Weather Backend running on http://localhost:${PORT}`);
+    console.log(`   Chat Model: ${GROQ_MODEL}`);
+    console.log(`   Voice: ElevenLabs (${ELEVENLABS_VOICE_ID})`);
+  });
+}
+module.exports = app;
