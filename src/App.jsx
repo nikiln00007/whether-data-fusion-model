@@ -4,10 +4,8 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 import { LANGUAGES } from './i18n/index';
 import Header from './components/Layout/Header';
 import Weather from './components/Weather/Weather';
-import ChatWidget from './components/Chatbot/ChatWidget';
 import './i18n/index';
 import './index.css';
-import './components/Chatbot/ChatWidget.css';
 
 /** Simple React error boundary */
 class ErrorBoundary extends React.Component {
@@ -108,9 +106,6 @@ export default function App() {
             />
           </div>
         </main>
-
-        {/* Floating AI chatbot */}
-        <ChatWidget weather={weatherData} language={language} />
       </div>
     </ErrorBoundary>
   );
