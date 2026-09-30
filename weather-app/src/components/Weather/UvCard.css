@@ -1,0 +1,143 @@
+.uv-card, .rain-card {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-icon { font-size: 1.3rem; }
+
+.card-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.uv-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.uv-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.uv-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background var(--transition-base);
+}
+
+.uv-advice {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Rain card specifics */
+.rain-prob-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--theme-accent);
+  line-height: 1;
+}
+
+.rain-advice {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Gauge */
+.rain-gauge-wrap {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-md);
+}
+
+.rain-gauge-tube {
+  width: 28px;
+  height: 100px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+}
+
+.rain-gauge-fill {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  border-radius: 14px;
+  background: linear-gradient(to top, var(--theme-accent), #a8d8f0);
+  transition: height 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+
+.rain-gauge-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rain-gauge-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.rain-gauge-val {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--theme-accent);
+}
+
+/* Extra stat rows */
+.extra-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.extra-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.extra-stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.extra-stat-val {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Visibility bar */
+.vis-bar-track {
+  height: 6px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+.vis-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--theme-accent);
+  transition: width 0.8s ease;
+}

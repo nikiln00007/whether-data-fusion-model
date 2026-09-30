@@ -1,0 +1,211 @@
+/* =============================================
+   DESIGN SYSTEM — CSS CUSTOM PROPERTIES
+   High contrast, accessible, theme-reactive tokens
+   ============================================= */
+
+:root {
+  /* --- Fonts --- */
+  --font-main: 'Inter', 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* --- Border radius --- */
+  --radius-card: 28px;
+  --radius-pill: 50px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+
+  /* --- Shadows --- */
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.18);
+  --shadow-btn: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+  /* --- Glass effect --- */
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-bg-strong: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(255, 255, 255, 0.65);
+  --glass-dark: rgba(0, 0, 0, 0.08);
+
+  /* --- Text contrast guarantees --- */
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-on-gradient: #ffffff;
+
+  /* --- Chat Tokens (Light Default) --- */
+  --chat-panel-bg: rgba(255, 255, 255, 0.96);
+  --chat-header-bg: #ffffff;
+  --chat-header-text: #0f172a;
+  --chat-header-sub: #64748b;
+  --chat-body-bg: #f8fafc;
+  --chat-footer-bg: #ffffff;
+  --chat-border: rgba(0, 0, 0, 0.08);
+
+  --bubble-user-bg: linear-gradient(135deg, #2563eb, #3b82f6);
+  --bubble-user-text: #ffffff;
+  --bubble-user-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+
+  --bubble-assistant-bg: #ffffff;
+  --bubble-assistant-text: #0f172a;
+  --bubble-assistant-border: 1px solid rgba(0, 0, 0, 0.09);
+  --bubble-assistant-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+
+  --chat-input-bg: #f1f5f9;
+  --chat-input-text: #0f172a;
+  --chat-input-border: rgba(0, 0, 0, 0.12);
+  --chat-input-placeholder: #64748b;
+
+  --chat-chip-bg: rgba(37, 99, 235, 0.08);
+  --chat-chip-text: #1d4ed8;
+  --chat-chip-border: rgba(37, 99, 235, 0.22);
+  --chat-chip-hover-bg: #2563eb;
+  --chat-chip-hover-text: #ffffff;
+
+  --chat-clear-btn-bg: #ffffff;
+  --chat-clear-btn-text: #64748b;
+
+  /* --- Chart Tokens --- */
+  --bar-track-bg: rgba(0, 0, 0, 0.08);
+  --bar-label-top: #0f172a;
+  --bar-label-bottom: #475569;
+  --bar-fill-grad: linear-gradient(to top, var(--theme-accent), #38bdf8);
+
+  /* --- Spacing --- */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* --- Transitions --- */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-theme: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* --- Default theme (Clear / Sunny) --- */
+  --theme-grad-start: #38bdf8;
+  --theme-grad-end: #e0f2fe;
+  --theme-accent: #0284c7;
+  --theme-accent-light: rgba(2, 132, 199, 0.15);
+  --theme-pill-selected: #0284c7;
+  --theme-icon-color: #0284c7;
+}
+
+/* ── Theme: Thunderstorm ────────────────────────── */
+[data-theme="thunderstorm"] {
+  --theme-grad-start: #4338ca;
+  --theme-grad-end: #c7d2fe;
+  --theme-accent: #6366f1;
+  --theme-accent-light: rgba(99, 102, 241, 0.18);
+  --theme-pill-selected: #6366f1;
+  --theme-icon-color: #6366f1;
+  --bar-fill-grad: linear-gradient(to top, #6366f1, #a5b4fc);
+}
+
+/* ── Theme: Rain / Drizzle ─────────────────────── */
+[data-theme="rain"] {
+  --theme-grad-start: #0f766e;
+  --theme-grad-end: #ccfbf1;
+  --theme-accent: #0d9488;
+  --theme-accent-light: rgba(13, 148, 136, 0.18);
+  --theme-pill-selected: #0d9488;
+  --theme-icon-color: #0d9488;
+  --bar-fill-grad: linear-gradient(to top, #0d9488, #5eead4);
+}
+
+/* ── Theme: Snow ───────────────────────────────── */
+[data-theme="snow"] {
+  --theme-grad-start: #7dd3fc;
+  --theme-grad-end: #f0f9ff;
+  --theme-accent: #0284c7;
+  --theme-accent-light: rgba(2, 132, 199, 0.15);
+  --theme-pill-selected: #0284c7;
+  --theme-icon-color: #0284c7;
+  --bar-fill-grad: linear-gradient(to top, #0284c7, #bae6fd);
+}
+
+/* ── Theme: Fog / Mist ─────────────────────────── */
+[data-theme="fog"] {
+  --theme-grad-start: #64748b;
+  --theme-grad-end: #e2e8f0;
+  --theme-accent: #475569;
+  --theme-accent-light: rgba(71, 85, 105, 0.18);
+  --theme-pill-selected: #475569;
+  --theme-icon-color: #475569;
+  --bar-fill-grad: linear-gradient(to top, #475569, #94a3b8);
+}
+
+/* ── Theme: Hot ────────────────────────────────── */
+[data-theme="hot"] {
+  --theme-grad-start: #ea580c;
+  --theme-grad-end: #ffedd5;
+  --theme-accent: #c2410c;
+  --theme-accent-light: rgba(194, 65, 12, 0.18);
+  --theme-pill-selected: #c2410c;
+  --theme-icon-color: #c2410c;
+  --bar-fill-grad: linear-gradient(to top, #ea580c, #fdba74);
+}
+
+/* ── Theme: Night (Deep Glassmorphic Dark Mode) ── */
+[data-theme="night"] {
+  --theme-grad-start: #090d16;
+  --theme-grad-end: #1e1b4b;
+  --theme-accent: #818cf8;
+  --theme-accent-light: rgba(129, 140, 248, 0.22);
+  --theme-pill-selected: #6366f1;
+  --theme-icon-color: #a5b4fc;
+
+  /* Glass cards on night theme */
+  --glass-bg: rgba(30, 41, 59, 0.72);
+  --glass-bg-strong: rgba(15, 23, 42, 0.90);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-dark: rgba(255, 255, 255, 0.08);
+
+  /* Crisp white text for cards & dashboard */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-on-gradient: #f8fafc;
+
+  /* Chat window in night mode */
+  --chat-panel-bg: #0f172a;
+  --chat-header-bg: #1e293b;
+  --chat-header-text: #f8fafc;
+  --chat-header-sub: #94a3b8;
+  --chat-body-bg: #090d16;
+  --chat-footer-bg: #1e293b;
+  --chat-border: rgba(255, 255, 255, 0.12);
+
+  /* Bubbles in night mode - 100% visible, high-contrast text! */
+  --bubble-user-bg: linear-gradient(135deg, #6366f1, #818cf8);
+  --bubble-user-text: #ffffff;
+  --bubble-user-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+
+  --bubble-assistant-bg: #1e293b;
+  --bubble-assistant-text: #f8fafc;
+  --bubble-assistant-border: 1px solid rgba(255, 255, 255, 0.15);
+  --bubble-assistant-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+
+  /* Chat input in night mode */
+  --chat-input-bg: #0f172a;
+  --chat-input-text: #f8fafc;
+  --chat-input-border: rgba(255, 255, 255, 0.20);
+  --chat-input-placeholder: #94a3b8;
+
+  /* Chips in night mode */
+  --chat-chip-bg: rgba(129, 140, 248, 0.16);
+  --chat-chip-text: #c7d2fe;
+  --chat-chip-border: rgba(129, 140, 248, 0.35);
+  --chat-chip-hover-bg: #6366f1;
+  --chat-chip-hover-text: #ffffff;
+
+  /* Clear button in night mode */
+  --chat-clear-btn-bg: #1e293b;
+  --chat-clear-btn-text: #cbd5e1;
+
+  /* Chart tokens in night mode */
+  --bar-track-bg: rgba(255, 255, 255, 0.12);
+  --bar-label-top: #f8fafc;
+  --bar-label-bottom: #94a3b8;
+  --bar-fill-grad: linear-gradient(to top, #6366f1, #818cf8);
+}

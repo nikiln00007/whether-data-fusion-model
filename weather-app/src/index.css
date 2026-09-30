@@ -1,0 +1,216 @@
+/* ============================================
+   GLOBAL RESET & BASE STYLES
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap');
+@import './styles/variables.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-primary);
+  background: linear-gradient(160deg, var(--theme-grad-start), var(--theme-grad-end));
+  min-height: 100vh;
+  transition: background var(--transition-theme);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* RTL support */
+[dir="rtl"] {
+  text-align: right;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 3px; }
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--theme-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Buttons reset */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Link reset */
+a { text-decoration: none; color: inherit; }
+
+/* ============================================
+   GLASSMORPHISM CARD
+   ============================================ */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.glass-card:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ============================================
+   ANIMATED BG BLOBS
+   ============================================ */
+.bg-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+  transition: background var(--transition-theme);
+}
+
+.bg-blob-1 {
+  width: 400px; height: 400px;
+  background: var(--theme-grad-start);
+  top: -100px; left: -100px;
+  animation: blobFloat1 12s ease-in-out infinite;
+}
+
+.bg-blob-2 {
+  width: 320px; height: 320px;
+  background: var(--theme-grad-end);
+  bottom: 10%; right: -80px;
+  animation: blobFloat2 15s ease-in-out infinite;
+}
+
+.bg-blob-3 {
+  width: 200px; height: 200px;
+  background: var(--theme-accent);
+  top: 40%; left: 30%;
+  animation: blobFloat3 18s ease-in-out infinite;
+}
+
+@keyframes blobFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, 20px) scale(1.05); }
+}
+@keyframes blobFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-20px, -30px) scale(1.08); }
+}
+@keyframes blobFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(15px, -15px) scale(0.95); }
+}
+
+/* ============================================
+   APP LAYOUT
+   ============================================ */
+.app-wrapper {
+  position: relative;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+.app-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-md);
+}
+
+/* Desktop Grid */
+@media (min-width: 1024px) {
+  .weather-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .weather-grid .hero-col {
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+  }
+
+  .weather-grid .stats-col {
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+  }
+
+  .weather-grid .cards-col {
+    grid-column: 2 / 4;
+    grid-row: 2 / 3;
+  }
+
+  .weather-grid .forecast-col {
+    grid-column: 1 / 4;
+    grid-row: 4 / 5;
+  }
+
+  .weather-grid .chart-col {
+    grid-column: 1 / 4;
+    grid-row: 5 / 6;
+  }
+}
+
+/* Tablet Grid */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .weather-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+}
+
+/* Mobile: single column */
+@media (max-width: 599px) {
+  .weather-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+}
+
+/* ============================================
+   SKELETON LOADER
+   ============================================ */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.3) 25%,
+    rgba(255,255,255,0.6) 50%,
+    rgba(255,255,255,0.3) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

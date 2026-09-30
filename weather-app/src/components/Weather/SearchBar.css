@@ -1,0 +1,201 @@
+.search-bar-container {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-bar-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.search-input-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--glass-bg-strong);
+  border: 1.5px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  padding: 6px 6px 6px 18px;
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-fast);
+}
+
+.search-input-row:focus-within {
+  border-color: var(--theme-accent);
+  box-shadow: 0 0 0 3px var(--theme-accent-light), var(--shadow-card-hover);
+}
+
+.search-icon {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  color: var(--text-primary);
+  outline: none;
+  min-width: 0;
+  font-weight: 500;
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.9;
+}
+.search-input:disabled { opacity: 0.5; }
+
+.search-btn {
+  background: var(--theme-accent);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
+  min-width: 84px;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.search-btn:hover:not(:disabled) {
+  transform: scale(1.04);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+.search-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.geo-btn {
+  font-size: 1.3rem;
+  padding: 6px 8px;
+  border-radius: 50%;
+  color: var(--text-primary);
+  background: rgba(125, 125, 125, 0.1);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.geo-btn:hover:not(:disabled) {
+  transform: scale(1.15);
+  background: var(--theme-accent-light);
+}
+.geo-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.search-error {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  padding-left: 18px;
+  font-weight: 600;
+}
+
+/* ── Suggestions ───────────────────────────────────── */
+.suggestions-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0; right: 0;
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card-hover);
+  list-style: none;
+  overflow: hidden;
+  z-index: 100;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.suggestion-item:hover, .suggestion-item:focus {
+  background: var(--theme-accent-light);
+  outline: none;
+}
+
+.suggestion-pin { font-size: 1rem; }
+
+/* ── Quick City Chips ──────────────────────────────── */
+.quick-cities-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.quick-cities-row::-webkit-scrollbar { display: none; }
+
+.quick-cities-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-on-gradient);
+  opacity: 0.85;
+  letter-spacing: 0.4px;
+  flex-shrink: 0;
+}
+
+.quick-cities-list {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.quick-city-chip {
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid var(--glass-border);
+  color: var(--text-on-gradient);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.quick-city-chip:hover:not(:disabled) {
+  background: var(--theme-accent);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Spinner */
+.spinner {
+  display: inline-block;
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

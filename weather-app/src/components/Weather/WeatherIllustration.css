@@ -1,0 +1,90 @@
+/* ============================================
+   WEATHER ILLUSTRATION — CSS + SVG inline art
+   Animated glassmorphism weather icons
+   ============================================ */
+.illustration-wrap {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Floating animation for main element */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes floatSmall {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33% { transform: translateY(-6px) translateX(4px); }
+  66% { transform: translateY(-3px) translateX(-4px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { filter: drop-shadow(0 8px 24px rgba(255, 200, 50, 0.4)); }
+  50% { filter: drop-shadow(0 12px 36px rgba(255, 200, 50, 0.7)); }
+}
+
+@keyframes lightning-flash {
+  0%, 90%, 100% { opacity: 1; }
+  92%, 96% { opacity: 0.2; }
+  94%, 98% { opacity: 1; }
+}
+
+@keyframes raindrop {
+  0% { transform: translateY(-10px); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(30px); opacity: 0; }
+}
+
+@keyframes snowflake {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(35px) rotate(360deg); opacity: 0; }
+}
+
+.weather-illus-svg {
+  width: 200px;
+  height: 200px;
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 16px 32px rgba(0,0,0,0.12));
+}
+
+.illus-cloud-small {
+  position: absolute;
+  animation: floatSmall 6s ease-in-out infinite;
+}
+
+.illus-cloud-small:nth-child(2) { animation-delay: -2s; top: 20px; right: 10px; }
+.illus-cloud-small:nth-child(3) { animation-delay: -4s; bottom: 30px; left: 5px; }
+
+/* Sun glow */
+.illus-sun {
+  animation: float 4s ease-in-out infinite, pulse-glow 3s ease-in-out infinite;
+}
+
+/* Lightning */
+.illus-lightning {
+  animation: lightning-flash 3s ease-in-out infinite;
+}
+
+/* Rain drops */
+.rain-drop {
+  animation: raindrop 1.2s ease-in infinite;
+}
+.rain-drop:nth-child(2) { animation-delay: 0.2s; }
+.rain-drop:nth-child(3) { animation-delay: 0.4s; }
+.rain-drop:nth-child(4) { animation-delay: 0.6s; }
+.rain-drop:nth-child(5) { animation-delay: 0.8s; }
+
+/* Snow */
+.snow-flake {
+  animation: snowflake 2s ease-in infinite;
+}
+.snow-flake:nth-child(2) { animation-delay: 0.4s; }
+.snow-flake:nth-child(3) { animation-delay: 0.8s; }
+.snow-flake:nth-child(4) { animation-delay: 1.2s; }

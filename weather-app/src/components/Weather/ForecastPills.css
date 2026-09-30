@@ -1,0 +1,73 @@
+.forecast-section {
+  padding: var(--space-lg);
+}
+
+.forecast-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: var(--space-md);
+}
+
+.forecast-pills-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 4px 2px 8px;
+  scrollbar-width: none;
+}
+
+.forecast-pills-row::-webkit-scrollbar { display: none; }
+
+.forecast-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 16px;
+  border-radius: var(--radius-card);
+  border: 1.5px solid var(--glass-border);
+  background: rgba(125, 125, 125, 0.1);
+  min-width: 80px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  color: var(--text-primary);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.forecast-pill:hover:not(.selected) {
+  border-color: var(--theme-accent);
+  background: var(--theme-accent-light);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.forecast-pill.selected {
+  background: var(--theme-pill-selected);
+  border-color: var(--theme-pill-selected);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22), 0 0 16px var(--theme-accent-light);
+  transform: translateY(-4px) scale(1.03);
+}
+
+.pill-day {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pill-emoji {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.pill-temps {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
